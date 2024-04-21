@@ -31,7 +31,7 @@ const Homepage = () => {
         if (res.ok) {
           return res.json();
         }
-        alert("Failed to create booking");
+        alert("Already booked!!!");
         throw new Error("Failed to create booking");
       })
       .then((data) => {
