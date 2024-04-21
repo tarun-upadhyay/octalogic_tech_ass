@@ -2,11 +2,11 @@ import { createContext, useReducer } from "react";
 import { reducer } from "./reducer";
 
 const initalState = {
-  fullName: "",
+  firstName: "",
   lastName: "",
-  wheller: "",
-  vehicleTypes: [],
-  specificModel: [],
+  wheels: "",
+  vehicleType: "",
+  vehicleModel: "",
   startDate: "",
   endDate: "",
 };

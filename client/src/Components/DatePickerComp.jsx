@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
+import { FormContext } from "../formContext/FormContextProvider";
+import { addEndDate, addStartDate } from "../formContext/action";
 const DatePickerComp = () => {
   const [date, setDate] = useState(new Date());
   const [startDate, setStartDate] = useState();
+  const { formState, formDispatch } = useContext(FormContext);
   const [endDate, setEndDate] = useState();
   return (
     <div className="">
@@ -13,7 +16,12 @@ const DatePickerComp = () => {
           <DatePicker
             selectsStart
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            onChange={(date) => {
+              const dateval = new Date(date);
+              const dateString = dateval.toDateString();
+              formDispatch(addStartDate(dateString));
+              return setStartDate(date);
+            }}
             startDate={startDate}
             placeholderText="Choose start date"
             className="p-2 bg-green-100"
@@ -24,7 +32,13 @@ const DatePickerComp = () => {
           <DatePicker
             selectsEnd
             selected={endDate}
-            onChange={(date) => setEndDate(date)}
+            onChange={(date) => {
+              const dateval = new Date(date);
+              const dateString = dateval.toDateString();
+              formDispatch(addEndDate(dateString));
+
+              return setEndDate(date);
+            }}
             endDate={endDate}
             startDate={startDate}
             minDate={startDate}

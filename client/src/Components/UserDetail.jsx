@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FormContext } from "../formContext/FormContextProvider";
+import { addLastName, addName } from "../formContext/action";
 
 const UserDetail = () => {
+  const { formState, formDispatch } = useContext(FormContext);
   return (
     <div className="">
       <h3 className="text-xl mb-4 leading-7 mt-4 font-bold">
@@ -14,6 +17,8 @@ const UserDetail = () => {
             type="text"
             placeholder="First name"
             name="firstName"
+            onChange={(e) => formDispatch(addName(e.target.value))}
+            value={formState.firstName}
           ></input>
         </label>
         <label htmlFor="">
@@ -23,6 +28,8 @@ const UserDetail = () => {
             type="text"
             placeholder="Last Name"
             name="lastName"
+            onChange={(e) => formDispatch(addLastName(e.target.value))}
+            value={formState.lastName}
           ></input>
         </label>
       </div>

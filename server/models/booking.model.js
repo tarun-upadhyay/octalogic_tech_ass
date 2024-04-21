@@ -1,45 +1,25 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/db.connect");
-const { Booking } = require("./booking.model");
+const { Wheel, VehicleModel, VehicleType } = require("./vehicle.modal");
 
-const Wheel = sequelize.define(
-  "Wheel",
+const Booking = sequelize.define(
+  "Booking",
   {
-    noOfWheels: {
-      type: DataTypes.NUMBER,
-      allowNull: false,
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-const VehicleType = sequelize.define(
-  "VehicleType",
-  {
-    vehicleType: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    wheelId: {
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    vehicleModelId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Wheel,
+        model: VehicleModel,
         key: "id",
       },
-    },
-  },
-  {
-    timestamps: false,
-  }
-);
-const VehicleModel = sequelize.define(
-  "VehicleModel",
-  {
-    vehicleModel: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     vehicleTypeId: {
       type: DataTypes.INTEGER,
@@ -53,9 +33,17 @@ const VehicleModel = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Wheel,
+        model: "Wheel",
         key: "id",
       },
+    },
+    startDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    endDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
   },
   {
@@ -63,4 +51,4 @@ const VehicleModel = sequelize.define(
   }
 );
 
-module.exports = { Wheel, VehicleModel, VehicleType };
+module.exports = { Booking };
