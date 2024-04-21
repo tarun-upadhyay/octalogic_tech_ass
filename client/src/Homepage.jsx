@@ -20,7 +20,7 @@ const Homepage = () => {
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
 
   const handleSubmitBooking = () => {
-    fetch("http://localhost:5000/api/v1/booking/create", {
+    fetch("https://octalogic-tech-ass.onrender.com/api/v1/booking/create", {
       method: "POST",
       body: JSON.stringify(formState), // Change FormData to formData
       headers: {

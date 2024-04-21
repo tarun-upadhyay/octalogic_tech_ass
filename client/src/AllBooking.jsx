@@ -19,7 +19,7 @@ const AllBooking = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/booking")
+    fetch("https://octalogic-tech-ass.onrender.com/api/v1/booking")
       .then((response) => response.json())
       .then((data) => {
         setBookings(data.bookings);
@@ -38,7 +38,7 @@ const AllBooking = () => {
       </h1>
       {loading ? (
         <Skeleton count={20} />
-      ) : bookings.length > 0 ? (
+      ) : bookings && bookings.length > 0 ? (
         <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5">
           {bookings.map((booking) => (
             <div

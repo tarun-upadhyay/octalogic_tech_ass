@@ -10,7 +10,7 @@ const VehicleModel = () => {
   const { formState, formDispatch } = useContext(FormContext);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/v1/vehicle/vehicleModel/${formState.vehicleType}`
+      `https://octalogic-tech-ass.onrender.com/api/v1/vehicle/vehicleModel/${formState.vehicleType}`
     )
       .then((response) => response.json())
       .then((data) => {
