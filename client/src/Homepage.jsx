@@ -22,7 +22,7 @@ const Homepage = () => {
   const handleSubmitBooking = () => {
     fetch("https://octalogic-tech-ass.onrender.com/api/v1/booking/create", {
       method: "POST",
-      body: JSON.stringify(formState), // Change FormData to formData
+      body: JSON.stringify(formState), 
       headers: {
         "Content-Type": "application/json",
       },
@@ -39,11 +39,11 @@ const Homepage = () => {
         alert("Booking Completed");
         setActiveStep(0);
         formDispatch(intialState());
-        // Handle success response
+        
       })
       .catch((err) => {
         console.error(err);
-        // Handle error
+        
       });
   };
   return (
@@ -95,8 +95,8 @@ const Homepage = () => {
               onClick={handleSubmitBooking}
               className="bg-[#26a69a]"
               disabled={
-                formState.startDate == "" ||
-                formState.endDate == "" ||
+                formState.startDate === "" ||
+                formState.endDate === "" ||
                 formState.firstName.length < 2 ||
                 formState.firstName.length < 2 ||
                 formState.wheels.length === "" ||
