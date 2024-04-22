@@ -6,7 +6,7 @@ import WheelsDetails from "./Components/WheelsDetails";
 import TypeOfVehicle from "./Components/TypeOfVehicle";
 import VehicleModel from "./Components/VehicleModel";
 import DatePickerComp from "./Components/DatePickerComp";
-
+import Swal from "sweetalert2";
 import { FormContext } from "./formContext/FormContextProvider";
 import { intialState } from "./formContext/action";
 
@@ -22,7 +22,7 @@ const Homepage = () => {
   const handleSubmitBooking = () => {
     fetch("https://octalogic-tech-ass.onrender.com/api/v1/booking/create", {
       method: "POST",
-      body: JSON.stringify(formState), 
+      body: JSON.stringify(formState),
       headers: {
         "Content-Type": "application/json",
       },
@@ -31,19 +31,28 @@ const Homepage = () => {
         if (res.ok) {
           return res.json();
         }
-        alert("Already booked!!!");
+        Swal.fire({
+          title: "Already booked!",
+          text: "Please choose different vehicle",
+          icon: "error",
+          confirmButtonText: "close",
+        });
+
         throw new Error("Failed to create booking");
       })
       .then((data) => {
-        console.log(data);
-        alert("Booking Completed");
+        Swal.fire({
+          icon: "success",
+          title: "Booking completed, Thank you for using our service",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
         setActiveStep(0);
         formDispatch(intialState());
-        
       })
       .catch((err) => {
         console.error(err);
-        
       });
   };
   return (
@@ -127,7 +136,7 @@ const Homepage = () => {
                     return (
                       <Button
                         onClick={handleNext}
-                        disabled={isLastStep || formState.wheels.length === ""}
+                        disabled={isLastStep || formState.wheels === ""}
                       >
                         Next
                       </Button>

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { FormContext } from "../formContext/FormContextProvider";
 import { addEndDate, addStartDate } from "../formContext/action";
+
 const DatePickerComp = () => {
   const [date, setDate] = useState(new Date());
   const [startDate, setStartDate] = useState();

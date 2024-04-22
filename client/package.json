@@ -1,5 +1,5 @@
 {
-  "proxy":"https://octalogic-tech-ass.onrender.com",
+  "proxy": "https://octalogic-tech-ass.onrender.com",
   "name": "client",
   "version": "0.1.0",
   "private": true,
@@ -18,6 +18,7 @@
     "react-loading-skeleton": "^3.4.0",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "sweetalert2": "^11.10.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

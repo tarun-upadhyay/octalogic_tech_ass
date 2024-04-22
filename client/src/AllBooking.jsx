@@ -48,6 +48,7 @@ const AllBooking = () => {
               <p className="font-bold my-1">
                 Name: {booking.firstName} {booking.lastName}
               </p>
+              <p className="font-bold my-1">Booking ID: {booking.id}</p>
               <p>Start Date: {booking.startDate}</p>
               <p>End Date: {booking.endDate}</p>
               <p>Vehicle Type Id: {booking.vehicleTypeId}</p>
