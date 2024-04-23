@@ -122,7 +122,9 @@ $ npm start        // run it locally
    -   This endpoint is used to store all the bookings of a user
 - GET /api/v1/booking
   - This endpoint is used to get all booked vehicles.
-  
+- DELETE /api/v1/booking/delete/id
+  - This endpoint is used tod delelte booking on basis of id.
+     
 # Thank you for your time
 
 - Thank you for using this application
