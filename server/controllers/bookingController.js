@@ -77,4 +77,30 @@ const getBookedData = async (req, res) => {
   }
 };
 
-module.exports = { createBooking, getBookedData };
+const deleteBooking = async (req, res) => {
+  const { id } = req.params;
+  if (!id) throw new CustomError.BadRequestError("Wheel id not found");
+  try {
+    const numDeletedRows = await Booking.destroy({
+      where: {
+        id,
+      },
+    });
+    if (numDeletedRows === 1) {
+      console.log(`Booking with id ${id} has been deleted successfully.`);
+      res
+        .status(200)
+        .json({
+          message: `Booking with id ${id} has been deleted successfully.`,
+        });
+    } else {
+      console.log(`Failed to delete booking with id ${id}.`);
+      res.status(404).json({ message: `Booking with id ${id} not found.` });
+    }
+  } catch (err) {
+    console.error("Error deleting booking:", err);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+module.exports = { createBooking, getBookedData, deleteBooking };

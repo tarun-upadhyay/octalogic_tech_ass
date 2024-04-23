@@ -23,8 +23,7 @@ const TypeOfVehicle = () => {
       });
   }, []);
   const handleRadioChange = (value, typeName) => {
-    console.log(value);
-    formDispatch(addVehicleType({value,typeName}));
+    formDispatch(addVehicleType({ value, typeName }));
   };
 
   return (
