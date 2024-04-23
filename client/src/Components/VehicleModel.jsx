@@ -22,8 +22,8 @@ const VehicleModel = () => {
         setLoading(false);
       });
   }, []);
-  const handleRadioChange = (value) => {
-    formDispatch(addVehicleModel(value));
+  const handleRadioChange = (value, typeName) => {
+    formDispatch(addVehicleModel({value, typeName}));
   };
   return (
     <div className="">
@@ -38,7 +38,7 @@ const VehicleModel = () => {
                 label={el.vehicleModel}
                 key={el.id}
                 checked={formState.vehicleModel === el.id}
-                onChange={() => handleRadioChange(el.id)}
+                onChange={() => handleRadioChange(el.id, el.vehicleModel)}
               />
             ))
           : vehicleModel.length === 0 && !loading && <h1>No Data found</h1>}

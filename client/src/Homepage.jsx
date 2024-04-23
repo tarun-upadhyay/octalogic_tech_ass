@@ -20,40 +20,41 @@ const Homepage = () => {
   const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
 
   const handleSubmitBooking = () => {
-    fetch("https://octalogic-tech-ass.onrender.com/api/v1/booking/create", {
-      method: "POST",
-      body: JSON.stringify(formState),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        Swal.fire({
-          title: "Already booked!",
-          text: "Please choose different vehicle",
-          icon: "error",
-          confirmButtonText: "close",
-        });
+    console.log(formState);
+    // fetch("https://octalogic-tech-ass.onrender.com/api/v1/booking/create", {
+    //   method: "POST",
+    //   body: JSON.stringify(formState),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then((res) => {
+    //     if (res.ok) {
+    //       return res.json();
+    //     }
+    //     Swal.fire({
+    //       title: "Already booked!",
+    //       text: "Please choose different vehicle",
+    //       icon: "error",
+    //       confirmButtonText: "close",
+    //     });
 
-        throw new Error("Failed to create booking");
-      })
-      .then((data) => {
-        Swal.fire({
-          icon: "success",
-          title: "Booking completed, Thank you for using our service",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+    //     throw new Error("Failed to create booking");
+    //   })
+    //   .then((data) => {
+    //     Swal.fire({
+    //       icon: "success",
+    //       title: "Booking completed, Thank you for using our service",
+    //       showConfirmButton: false,
+    //       timer: 1500,
+    //     });
 
-        setActiveStep(0);
-        formDispatch(intialState());
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    //     setActiveStep(0);
+    //     formDispatch(intialState());
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
   };
   return (
     <div className="w-[90%] md:w-[60%] lg:w-[50%] mx-auto">

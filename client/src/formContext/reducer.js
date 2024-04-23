@@ -21,13 +21,15 @@ export const reducer = (state, action) => {
     case "SET_VEHICLE_TYPE": {
       return {
         ...state,
-        vehicleType: action.payload,
+        vehicleType: action.payload.value,
+        vehicleTypeName: action.payload.typeName,
       };
     }
     case "SET_VEHICLE_MODEL": {
       return {
         ...state,
-        vehicleModel: action.payload,
+        vehicleModel: action.payload.value,
+        vehicleModelName: action.payload.typeName,
       };
     }
     case "SET_START_DATE": {
@@ -49,7 +51,9 @@ export const reducer = (state, action) => {
         lastName: "",
         wheels: "",
         vehicleType: "",
+        vehicleTypeName: "",
         vehicleModel: "",
+        vehicleModelName: "",
         startDate: "",
         endDate: "",
       };

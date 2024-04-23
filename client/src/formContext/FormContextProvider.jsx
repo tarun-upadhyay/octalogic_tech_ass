@@ -6,7 +6,9 @@ const initalState = {
   lastName: "",
   wheels: "",
   vehicleType: "",
+  vehicleTypeName: "",
   vehicleModel: "",
+  vehicleModelName: "",
   startDate: "",
   endDate: "",
 };

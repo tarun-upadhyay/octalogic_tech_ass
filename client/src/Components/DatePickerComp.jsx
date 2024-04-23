@@ -4,10 +4,10 @@ import { FormContext } from "../formContext/FormContextProvider";
 import { addEndDate, addStartDate } from "../formContext/action";
 
 const DatePickerComp = () => {
-  const [date, setDate] = useState(new Date());
-  const [startDate, setStartDate] = useState();
   const { formState, formDispatch } = useContext(FormContext);
-  const [endDate, setEndDate] = useState();
+  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(formState.startDate);
+  const [endDate, setEndDate] = useState(formState.endDate);
   return (
     <div className="">
       <h3 className="text-xl mb-4 leading-7 mt-4 font-bold">Select Dates</h3>

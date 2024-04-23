@@ -22,8 +22,9 @@ const TypeOfVehicle = () => {
         setLoading(false);
       });
   }, []);
-  const handleRadioChange = (value) => {
-    formDispatch(addVehicleType(value));
+  const handleRadioChange = (value, typeName) => {
+    console.log(value);
+    formDispatch(addVehicleType({value,typeName}));
   };
 
   return (
@@ -39,7 +40,7 @@ const TypeOfVehicle = () => {
                 label={el.vehicleType}
                 key={el.id}
                 checked={formState.vehicleType === el.id}
-                onChange={() => handleRadioChange(el.id)}
+                onChange={() => handleRadioChange(el.id, el.vehicleType)}
               />
             ))
           : vehicleTypes &&

@@ -10,7 +10,9 @@ const createBooking = async (req, res) => {
     vehicleType,
     wheels,
     startDate,
+    vehicleTypeName,
     endDate,
+    vehicleModelName,
   } = req.body;
 
   if (
@@ -33,6 +35,8 @@ const createBooking = async (req, res) => {
       lastName: lastName,
       vehicleTypeId: vehicleType,
       vehicleModelId: vehicleModel,
+      vehicleTypeName,
+      vehicleModelName,
     },
   });
 
@@ -49,6 +53,8 @@ const createBooking = async (req, res) => {
       wheelId: wheels,
       startDate,
       endDate,
+      vehicleTypeName,
+      vehicleModelName,
     });
 
     console.log("Booking created:", newBooking);

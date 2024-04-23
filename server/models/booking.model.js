@@ -13,6 +13,14 @@ const Booking = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    vehicleTypeName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    vehicleModelName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     vehicleModelId: {
       type: DataTypes.INTEGER,
       allowNull: false,

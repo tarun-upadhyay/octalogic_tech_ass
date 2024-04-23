@@ -6,7 +6,6 @@ import { FormContextProvider } from "./formContext/FormContextProvider";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-loading-skeleton/dist/skeleton.css";
 
-
 import AllBooking from "./AllBooking";
 const App = () => {
   return (
